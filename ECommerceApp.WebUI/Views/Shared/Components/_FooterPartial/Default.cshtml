@@ -1,34 +1,37 @@
-﻿<footer class="py-5">
+﻿<footer class="py-5 bg-dark text-light" aria-label="Site Alt Bilgisi">
     <div class="container-lg">
-        <div class="row">
+        <div class="row gy-4">
 
+            <!-- LOGO ve Sosyal Medya -->
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="footer-menu">
-                    <img src="images/logo.svg" width="240" height="70" alt="logo">
+                    <a href="/">
+                        <img src="@Url.Content("~/organic-1.0.0/images/logo.svg")" width="240" height="70" alt="Berra Organik Logo" loading="lazy">
+                    </a>
                     <div class="social-links mt-3">
                         <ul class="d-flex list-unstyled gap-2">
                             <li>
-                                <a href="#" class="btn btn-outline-light">
+                                <a href="#" class="btn btn-outline-light" aria-label="Facebook">
                                     <svg width="16" height="16"><use xlink:href="#facebook"></use></svg>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-outline-light">
+                                <a href="#" class="btn btn-outline-light" aria-label="Twitter">
                                     <svg width="16" height="16"><use xlink:href="#twitter"></use></svg>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-outline-light">
+                                <a href="#" class="btn btn-outline-light" aria-label="YouTube">
                                     <svg width="16" height="16"><use xlink:href="#youtube"></use></svg>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-outline-light">
+                                <a href="#" class="btn btn-outline-light" aria-label="Instagram">
                                     <svg width="16" height="16"><use xlink:href="#instagram"></use></svg>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-outline-light">
+                                <a href="#" class="btn btn-outline-light" aria-label="Amazon">
                                     <svg width="16" height="16"><use xlink:href="#amazon"></use></svg>
                                 </a>
                             </li>
@@ -37,88 +40,59 @@
                 </div>
             </div>
 
+            <!-- Hakkımızda -->
             <div class="col-md-2 col-sm-6">
                 <div class="footer-menu">
-                    <h5 class="widget-title">Organic</h5>
+                    <h5 class="widget-title text-uppercase fw-bold">Hakkımızda</h5>
                     <ul class="menu-list list-unstyled">
-                        <li class="menu-item">
-                            <a href="#" class="nav-link">About us</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="nav-link">Conditions </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="nav-link">Our Journals</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="nav-link">Careers</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="nav-link">Affiliate Programme</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="nav-link">Ultras Press</a>
-                        </li>
+                        <li><a href="#" class="nav-link text-light">Kurumsal</a></li>
+                        <li><a href="#" class="nav-link text-light">Kariyer</a></li>
+                        <li><a href="#" class="nav-link text-light">Basın</a></li>
+                        <li><a href="#" class="nav-link text-light">Koşullar & Politikalar</a></li>
+                        <li><a href="#" class="nav-link text-light">Blog</a></li>
                     </ul>
                 </div>
             </div>
+
+            <!-- Hızlı Erişim -->
             <div class="col-md-2 col-sm-6">
                 <div class="footer-menu">
-                    <h5 class="widget-title">Quick Links</h5>
+                    <h5 class="widget-title text-uppercase fw-bold">Hızlı Erişim</h5>
                     <ul class="menu-list list-unstyled">
-                        <li class="menu-item">
-                            <a href="#" class="nav-link">Offers</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="nav-link">Discount Coupons</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="nav-link">Stores</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="nav-link">Track Order</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="nav-link">Shop</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="nav-link">Info</a>
-                        </li>
+                        <li><a href="/kampanyalar" class="nav-link text-light">Kampanyalar</a></li>
+                        <li><a href="/indirimler" class="nav-link text-light">İndirim Kuponları</a></li>
+                        <li><a href="/magazalar" class="nav-link text-light">Mağazalar</a></li>
+                        <li><a href="/siparis-takip" class="nav-link text-light">Sipariş Takibi</a></li>
+                        <li><a href="/urunler" class="nav-link text-light">Ürünler</a></li>
+                        <li><a href="/bilgi" class="nav-link text-light">Bilgi</a></li>
                     </ul>
                 </div>
             </div>
+
+            <!-- Müşteri Hizmetleri -->
             <div class="col-md-2 col-sm-6">
                 <div class="footer-menu">
-                    <h5 class="widget-title">Customer Service</h5>
+                    <h5 class="widget-title text-uppercase fw-bold">Müşteri Hizmetleri</h5>
                     <ul class="menu-list list-unstyled">
-                        <li class="menu-item">
-                            <a href="#" class="nav-link">FAQ</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="nav-link">Contact</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="nav-link">Privacy Policy</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="nav-link">Returns & Refunds</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="nav-link">Cookie Guidelines</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="nav-link">Delivery Information</a>
-                        </li>
+                        <li><a href="/sss" class="nav-link text-light">Sık Sorulan Sorular</a></li>
+                        <li><a href="/iletisim" class="nav-link text-light">İletişim</a></li>
+                        <li><a href="/gizlilik" class="nav-link text-light">Gizlilik Politikası</a></li>
+                        <li><a href="/iade-ve-iptal" class="nav-link text-light">İade & İptal</a></li>
+                        <li><a href="/cerez-politikasi" class="nav-link text-light">Çerez Politikası</a></li>
+                        <li><a href="/teslimat" class="nav-link text-light">Teslimat Bilgileri</a></li>
                     </ul>
                 </div>
             </div>
+
+            <!-- Bülten Kaydı -->
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="footer-menu">
-                    <h5 class="widget-title">Subscribe Us</h5>
-                    <p>Subscribe to our newsletter to get updates about our grand offers.</p>
-                    <form class="d-flex mt-3 gap-0" action="index.html">
-                        <input class="form-control rounded-start rounded-0 bg-light" type="email" placeholder="Email Address" aria-label="Email Address">
-                        <button class="btn btn-dark rounded-end rounded-0" type="submit">Subscribe</button>
+                    <h5 class="widget-title text-uppercase fw-bold">Bültenimize Katıl</h5>
+                    <p class="text-light">Kampanyalarımızdan ve özel fırsatlarımızdan ilk sen haberdar ol!</p>
+                    <form class="d-flex mt-3 gap-0" method="post" action="#">
+                        <input class="form-control rounded-start rounded-0 bg-light"
+                               type="email" placeholder="E-posta adresiniz" aria-label="E-posta adresiniz" required>
+                        <button class="btn btn-primary rounded-end rounded-0" type="submit">Gönder</button>
                     </form>
                 </div>
             </div>
@@ -126,14 +100,19 @@
         </div>
     </div>
 </footer>
-<div id="footer-bottom">
+
+<!-- Telif ve Alt Kısım -->
+<div id="footer-bottom" class="bg-secondary text-light py-3">
     <div class="container-lg">
-        <div class="row">
-            <div class="col-md-6 copyright">
-                <p>© 2024 Organic. All rights reserved.</p>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <p class="mb-0">© 2025 Berra Organik. Tüm hakları saklıdır.</p>
             </div>
-            <div class="col-md-6 credit-link text-start text-md-end">
-                <p>HTML Template by <a href="https://templatesjungle.com/">TemplatesJungle</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a> </p>
+            <div class="col-md-6 text-start text-md-end">
+                <p class="mb-0">
+                    Tasarım <a href="https://templatesjungle.com/" class="text-light text-decoration-underline">TemplatesJungle</a>
+                    — Dağıtım <a href="https://themewagon.com" class="text-light text-decoration-underline">ThemeWagon</a>
+                </p>
             </div>
         </div>
     </div>

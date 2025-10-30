@@ -1,74 +1,62 @@
-﻿<section class="py-5 overflow-hidden">
+﻿<section class="py-5 overflow-hidden" aria-label="Kategoriler">
     <div class="container-lg">
         <div class="row">
             <div class="col-md-12">
 
-                <div class="section-header d-flex flex-wrap justify-content-between mb-5">
-                    <h2 class="section-title">Category</h2>
+                <div class="section-header d-flex flex-wrap justify-content-between mb-5 align-items-center">
+                    <h2 class="section-title fw-bold">Kategoriler</h2>
 
                     <div class="d-flex align-items-center">
-                        <a href="#" class="btn btn-primary me-2">View All</a>
+                        <a href="#" class="btn btn-primary me-2">Tümünü Gör</a>
                         <div class="swiper-buttons">
-                            <button class="swiper-prev category-carousel-prev btn btn-yellow">❮</button>
-                            <button class="swiper-next category-carousel-next btn btn-yellow">❯</button>
+                            <button class="swiper-prev category-carousel-prev btn btn-outline-dark rounded-circle px-3">❮</button>
+                            <button class="swiper-next category-carousel-next btn btn-outline-dark rounded-circle px-3">❯</button>
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-12">
 
                 <div class="category-carousel swiper">
                     <div class="swiper-wrapper">
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">deneme kategori</h4>
+
+                        <a href="kategori/ekmek-ve-tatlilar" class="nav-link swiper-slide text-center">
+                            <img src="@Url.Content("~/organic-1.0.0/images/category-thumb-2.jpg")" class="rounded-circle img-fluid" alt="Ekmek ve Tatlılar">
+                            <h4 class="fs-6 mt-3 fw-normal category-title">Ekmek & Tatlılar</h4>
                         </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-2.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Breads & Sweets</h4>
+
+                        <a href="kategori/meyve-ve-sebzeler" class="nav-link swiper-slide text-center">
+                            <img src="@Url.Content("~/organic-1.0.0/images/category-thumb-3.jpg")" class="rounded-circle img-fluid" alt="Meyve ve Sebzeler">
+                            <h4 class="fs-6 mt-3 fw-normal category-title">Meyve & Sebzeler</h4>
                         </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-3.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
+
+                        <a href="kategori/icecekler" class="nav-link swiper-slide text-center">
+                            <img src="@Url.Content("~/organic-1.0.0/images/category-thumb-4.jpg")" class="rounded-circle img-fluid" alt="İçecekler">
+                            <h4 class="fs-6 mt-3 fw-normal category-title">İçecekler</h4>
                         </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-4.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Beverages</h4>
+
+                        <a href="kategori/et-urunleri" class="nav-link swiper-slide text-center">
+                            <img src="@Url.Content("~/organic-1.0.0/images/category-thumb-5.jpg")" class="rounded-circle img-fluid" alt="Et Ürünleri">
+                            <h4 class="fs-6 mt-3 fw-normal category-title">Et Ürünleri</h4>
                         </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-5.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Meat Products</h4>
+
+                      @*   <a href="kategori/sut-ve-sut-urunleri" class="nav-link swiper-slide text-center">
+                            <img src="@Url.Content("~/organic-1.0.0/images/category-thumb-9.jpg")" class="rounded-circle img-fluid" alt="Süt ve Süt Ürünleri">
+                            <h4 class="fs-6 mt-3 fw-normal category-title">Süt & Süt Ürünleri</h4>
+                        </a> *@
+
+                        <a href="kategori/organik-urunler" class="nav-link swiper-slide text-center">
+                            <img src="@Url.Content("~/organic-1.0.0/images/category-thumb-7.jpg")" class="rounded-circle img-fluid" alt="Organik Ürünler">
+                            <h4 class="fs-6 mt-3 fw-normal category-title">Organik Ürünler</h4>
                         </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-6.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Breads</h4>
-                        </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-7.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
-                        </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-8.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Breads & Sweets</h4>
-                        </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
-                        </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Beverages</h4>
-                        </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Meat Products</h4>
-                        </a>
-                        <a href="category.html" class="nav-link swiper-slide text-center">
-                            <img src="images/category-thumb-1.jpg" class="rounded-circle" alt="Category Thumbnail">
-                            <h4 class="fs-6 mt-3 fw-normal category-title">Breads</h4>
+
+                        <a href="kategori/kuru-gidalar" class="nav-link swiper-slide text-center">
+                            <img src="@Url.Content("~/organic-1.0.0/images/category-thumb-8.jpg")" class="rounded-circle img-fluid" alt="Kuru Gıdalar">
+                            <h4 class="fs-6 mt-3 fw-normal category-title">Kuru Gıdalar</h4>
                         </a>
 
                     </div>
