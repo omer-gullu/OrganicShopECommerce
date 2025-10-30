@@ -23,10 +23,15 @@ namespace ECommerceApp.DataAccess.DataBase
 
         // 📦 Veritabanı tablolarını temsil eden DbSet'ler
         public DbSet<Product> Products { get; set; }
-            public DbSet<Category> Categories { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
+        public DbSet<BasketItem> BasketItems { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
 
-            // ⚙️ Model oluşturulurken yapılandırmalar
-            protected override void OnModelCreating(ModelBuilder modelBuilder)
+        // ⚙️ Model oluşturulurken yapılandırmalar
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
             {
                 base.OnModelCreating(modelBuilder);
 
@@ -53,9 +58,39 @@ namespace ECommerceApp.DataAccess.DataBase
                           .IsRequired()
                           .HasMaxLength(100);
                 });
+            // --- Basket - BasketItem ilişkisi (1 sepet -> N ürün)
+            modelBuilder.Entity<Basket>()
+                .HasMany(b => b.Items)
+                .WithOne()
+                .OnDelete(DeleteBehavior.Cascade);
 
-                // Örnek veri ekleme (isteğe bağlı - seed data)
-                modelBuilder.Entity<Category>().HasData(
+            // --- User - Basket ilişkisi (1 kullanıcı -> 1 sepet)
+            modelBuilder.Entity<User>()
+                .HasOne(u => u.Basket)
+                .WithOne()
+                .HasForeignKey<Basket>(b => b.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // --- User - Order ilişkisi (1 kullanıcı -> N sipariş)
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Orders)
+                .WithOne(o => o.User)
+                .HasForeignKey(o => o.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // --- Order - OrderItem ilişkisi (1 sipariş -> N ürün)
+            modelBuilder.Entity<Order>()
+                .HasMany(o => o.Items)
+                .WithOne()
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // --- Decimal hassasiyet ayarı (SQL tarafında)
+            modelBuilder.Entity<Product>()
+                .Property(p => p.Price)
+                .HasColumnType("decimal(18,2)");
+
+            // Örnek veri ekleme (isteğe bağlı - seed data)
+            modelBuilder.Entity<Category>().HasData(
                     new Category { Id = 1, Name = "Fruits & Veges" },
                     new Category { Id = 2, Name = "Breads & Sweets" },
                     new Category { Id = 3, Name = "Beverages" },
