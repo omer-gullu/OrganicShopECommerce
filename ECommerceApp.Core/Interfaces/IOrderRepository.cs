@@ -9,5 +9,6 @@ namespace ECommerceApp.Core.Interfaces
 {
     public interface IOrderRepository : IRepository<Order>
     {
+        Task<List<Order>> GetOrdersWithItemsByUserIdAsync(int userId); // 👈 Kullanıcının sipariş geçmişi
     }
 }

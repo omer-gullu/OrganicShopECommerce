@@ -9,5 +9,6 @@ namespace ECommerceApp.Core.Interfaces
 {
     public interface IBasketRepository : IRepository<Basket>
     {
+        Task<Basket> GetBasketWithItemsAsync(int userId);
     }
 }

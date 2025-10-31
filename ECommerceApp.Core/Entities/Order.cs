@@ -15,7 +15,7 @@ namespace ECommerceApp.Core.Entities
             public DateTime CreatedAt { get; set; } = DateTime.Now;
 
             public int UserId { get; set; }
-            public User? User { get; set; }
+            public User User { get; set; }
 
             public ICollection<OrderItem> Items { get; set; } = new List<OrderItem>();
 

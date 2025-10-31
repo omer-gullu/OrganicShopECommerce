@@ -9,5 +9,6 @@ namespace ECommerceApp.Core.Interfaces
 {
     public interface IOrderItemRepository : IRepository<OrderItem>
     {
+        Task<List<OrderItem>> GetOrderItemsByOrderIdAsync(int orderId); // 👈 Sipariş içindeki kalemler
     }
 }
