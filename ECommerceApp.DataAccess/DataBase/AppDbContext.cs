@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace ECommerceApp.DataAccess.DataBase
 {
-        public class AppDbContext : DbContext
+    public class AppDbContext : DbContext
+    {
+        // 📌 Constructor – DI (Dependency Injection) ile context ayarlarını alır
+        public AppDbContext(DbContextOptions<AppDbContext> options)
+            : base(options)
         {
-            // 📌 Constructor – DI (Dependency Injection) ile context ayarlarını alır
-            public AppDbContext(DbContextOptions<AppDbContext> options)
-                : base(options)
-            {
 
-            }
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=DESKTOP-8AVNO4L\\SQLEXPRESS;Database=ECommerceDb;Trusted_Connection=True;TrustServerCertificate=True");
@@ -29,41 +29,49 @@ namespace ECommerceApp.DataAccess.DataBase
         public DbSet<BasketItem> BasketItems { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
         // ⚙️ Model oluşturulurken yapılandırmalar
         protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Product
+            modelBuilder.Entity<Product>(entity =>
             {
-                base.OnModelCreating(modelBuilder);
+                entity.Property(p => p.Name)
+                      .IsRequired()
+                      .HasMaxLength(200);
 
-                // Product
-                modelBuilder.Entity<Product>(entity =>
-                {
-                    entity.Property(p => p.Name)
-                          .IsRequired()
-                          .HasMaxLength(200);
+                entity.Property(p => p.Price)
+                      .HasColumnType("decimal(18,2)");
 
-                    entity.Property(p => p.Price)
-                          .HasColumnType("decimal(18,2)");
+                entity.HasOne(p => p.Category)
+                      .WithMany(c => c.Products)
+                      .HasForeignKey(p => p.CategoryId)
+                      .OnDelete(DeleteBehavior.Cascade);
+            });
 
-                    entity.HasOne(p => p.Category)
-                          .WithMany(c => c.Products)
-                          .HasForeignKey(p => p.CategoryId)
-                          .OnDelete(DeleteBehavior.Cascade);
-                });
-
-                // Category
-                modelBuilder.Entity<Category>(entity =>
-                {
-                    entity.Property(c => c.Name)
-                          .IsRequired()
-                          .HasMaxLength(100);
-                });
-            // --- Basket - BasketItem ilişkisi (1 sepet -> N ürün)
+            // Category
+            modelBuilder.Entity<Category>(entity =>
+            {
+                entity.Property(c => c.Name)
+                      .IsRequired()
+                      .HasMaxLength(100);
+            });
+            // 🔹 Basket - BasketItem (1 -> N)
             modelBuilder.Entity<Basket>()
                 .HasMany(b => b.Items)
-                .WithOne()
+                .WithOne(i => i.Basket)
+                .HasForeignKey(i => i.BasketId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            // 🔹 BasketItem - Product (N -> 1)
+            modelBuilder.Entity<BasketItem>()
+                .HasOne(i => i.Product)
+                .WithMany()
+                .HasForeignKey(i => i.ProductId)
+                .OnDelete(DeleteBehavior.Cascade);
             // --- User - Basket ilişkisi (1 kullanıcı -> 1 sepet)
             modelBuilder.Entity<User>()
                 .HasOne(u => u.Basket)
@@ -97,14 +105,20 @@ namespace ECommerceApp.DataAccess.DataBase
                     new Category { Id = 4, Name = "Meat Products" }
                 );
 
-                modelBuilder.Entity<Product>().HasData(
-                    new Product { Id = 1, Name = "Organic Baby Spinach", Price = 18, CategoryId = 1, InStock = true, ImageUrl = "/images/product-thumb-10.png" },
-                    new Product { Id = 2, Name = "Whole Wheat Sandwich Bread", Price = 24, CategoryId = 2, InStock = true, ImageUrl = "/images/product-thumb-17.png" },
-                    new Product { Id = 3, Name = "Pure Squeezed Orange Juice", Price = 12, CategoryId = 3, InStock = true, ImageUrl = "/images/product-thumb-11.png" },
-                    new Product { Id = 4, Name = "Fresh Salmon", Price = 50, CategoryId = 4, InStock = false, ImageUrl = "/images/product-thumb-6.png" }
-                );
-            }
+            modelBuilder.Entity<Product>().HasData(
+                new Product { Id = 1, Name = "Organic Baby Spinach", Price = 18, CategoryId = 1, InStock = true, ImageUrl = "/images/product-thumb-10.png" },
+                new Product { Id = 2, Name = "Whole Wheat Sandwich Bread", Price = 24, CategoryId = 2, InStock = true, ImageUrl = "/images/product-thumb-17.png" },
+                new Product { Id = 3, Name = "Pure Squeezed Orange Juice", Price = 12, CategoryId = 3, InStock = true, ImageUrl = "/images/product-thumb-11.png" },
+                new Product { Id = 4, Name = "Fresh Salmon", Price = 50, CategoryId = 4, InStock = false, ImageUrl = "/images/product-thumb-6.png" }
+            );
+            // 🧩 Role seed verileri
+            modelBuilder.Entity<Role>().HasData(
+                new Role { Id = 1, Name = "Admin" },
+                new Role { Id = 2, Name = "Seller" },
+                new Role { Id = 3, Name = "Customer" }
+            );
         }
     }
+}
 
 

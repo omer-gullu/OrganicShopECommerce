@@ -21,6 +21,10 @@ namespace ECommerceApp.Core.Entities
         [Required]
         public string PasswordHash { get; set; } = string.Empty;
 
+        // 🔗 Rol ilişkisi
+        public int RoleId { get; set; }
+        public required Role Role { get; set; }
+
         public ICollection<Order>? Orders { get; set; }
         public Basket? Basket { get; set; }
     }
